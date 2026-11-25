@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -432,4 +432,61 @@
   .mb-product__stepper { grid-template-columns: 1fr 1fr 1fr; }
   .mb-custom__fields { grid-template-columns: 1fr; }
   .mb-custom__fields > button { width: 100%; }
+}
+
+/* Live-market cards: keep compact controls intact and give custom items a visual fallback. */
+#cameras ul > li:not(:has(img)) {
+  min-width: 0;
+  overflow: hidden;
+  justify-content: flex-end;
+  background-color: white;
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 8%), rgb(28 25 23 / 58%)),
+    url("./assets/images/cat_grains_staples_1794668232030.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+#cameras ul > li:not(:has(img)) p {
+  color: rgb(255 255 255 / 78%);
+}
+
+#cameras ul > li button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  #cameras ul > li {
+    min-width: 0;
+  }
+
+  #cameras ul > li > div:last-child {
+    padding: 12px;
+  }
+
+  #cameras ul > li h4 {
+    font-size: 0.8rem;
+  }
+
+  #cameras ul > li p {
+    font-size: 0.65rem;
+  }
+
+  #cameras ul > li .font-mono {
+    font-size: 0.75rem;
+  }
+
+  #cameras ul > li button {
+    min-height: 40px;
+    padding-inline: 12px;
+    font-size: 0.75rem;
+  }
+
+  #cameras ul > li button svg {
+    display: none;
+  }
 }

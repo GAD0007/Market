@@ -44,14 +44,14 @@ export function LiveMarketCameras({ user, liveFirestoreSessions, quantities, cus
   const toggle = (id: string) => setOpenIds(prev => { const next = new Set(prev); next.has(id) ? next.delete(id) : next.add(id); return next; });
   const customInBag = (name: string) => customItems.find(item => item.name.toLowerCase() === name.toLowerCase());
   const wrapper = variant === 'storefront' ? 'border-b border-[#F1EADF] bg-[#FFFCF7]' : 'bg-transparent';
-  const container = variant === 'storefront' ? 'mx-auto flex max-w-[1200px] flex-col gap-9 px-4 py-14 sm:px-6 sm:py-[72px] lg:px-8' : 'flex flex-col gap-8';
+  const container = variant === 'storefront' ? 'mx-auto flex max-w-[1200px] flex-col gap-9 px-4 pb-14 pt-8 sm:px-6 sm:pb-[72px] sm:pt-12 lg:px-8' : 'flex flex-col gap-8';
 
   return <section id="cameras" className={`${wrapper} text-[#1C1917]`}><div className={container}>
     <div className="flex flex-wrap items-end justify-between gap-7">
-      <div className="flex min-w-0 flex-1 basis-[420px] flex-col items-start gap-4">
+      <div className="flex min-w-0 flex-1 basis-[420px] flex-col items-start gap-3">
         <span className="inline-flex items-center gap-2.5 rounded-full border border-[#F1EADF] bg-white px-3.5 py-1.5 text-[13px] font-bold"><span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#DC2626] opacity-70" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[#DC2626]" /></span>{feeds.length} cameras live <span className="font-medium text-[#57534E]">Abuja FCT</span></span>
-        <h2 className="max-w-[760px] font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold leading-[1.04] tracking-tight [text-wrap:balance]">See live items inside Abuja markets before you buy</h2>
-        <p className="max-w-[600px] text-[17px] leading-relaxed text-[#57534E]">Browse active market camera sessions across Apo, Garki, Wuse, Dei-Dei and Utako. Inspect fresh foodstuffs and add items straight to your Market Bag.</p>
+        <h2 className="max-w-[760px] font-display text-[clamp(1.625rem,7vw,3rem)] font-extrabold leading-[1.16] tracking-[-0.025em] [text-wrap:balance]">Explore Abuja Markets Live</h2>
+        <p className="max-w-[600px] text-[15px] leading-relaxed text-[#57534E] sm:text-[17px]">See what&apos;s available at local market stalls, compare prices, and shop with confidence.</p>
       </div>
       <div className="flex flex-col items-start gap-2.5">
         <div className="flex flex-wrap gap-3">

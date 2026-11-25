@@ -22,8 +22,8 @@ export function MarketHero({ onJumpToCatalog, onJumpToCameras, whatsappNumber = 
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="flex items-center gap-2 text-sm font-semibold text-[#E08A00]"><span className="h-0.5 w-6 rounded-full bg-[#FFAA0D]" aria-hidden="true" />Abuja market delivery</p>
-            <h1 className="mt-4 font-display font-extrabold tracking-tight text-[#1C1917]" style={{ fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', lineHeight: 1.08, textWrap: 'balance' }}>Abuja market shopping, bought <span className="text-[#F5A000]">fresh</span> and delivered to your door.</h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-[#57534E]">Skip the Abuja traffic and market stress. Send your foodstuff list on our website or WhatsApp. Our Apo shoppers hand-pick quality rice, beans, produce and meat, and our dispatch bikes deliver straight to your estate.</p>
+            <h1 className="mt-4 max-w-[620px] font-display text-[clamp(1.875rem,8.2vw,3.5rem)] font-extrabold leading-[1.14] tracking-[-0.035em] text-[#1C1917] [text-wrap:balance]">Fresh From Abuja Markets. <span className="text-[#F5A000]">Delivered to Your Door.</span></h1>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[#57534E] sm:text-base">Skip the Abuja traffic and market stress. Send your foodstuff list on our website or WhatsApp. Our Apo shoppers hand-pick quality rice, beans, produce and meat, and our dispatch bikes deliver straight to your estate.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <button type="button" onClick={onJumpToCatalog} className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#FFAA0D] px-6 text-sm font-bold text-[#1C1917] shadow-[0_10px_24px_-10px_rgba(245,160,0,0.9)] transition-all hover:bg-[#F59E00] active:scale-[0.98]">Build Market List<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" /></button>
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border-2 border-[#1C1917] bg-transparent px-6 text-sm font-bold text-[#1C1917] transition-colors hover:bg-[#1C1917] hover:text-white active:scale-[0.98]"><MessageCircle className="h-4 w-4" aria-hidden="true" />Order via WhatsApp</a>
@@ -45,7 +45,7 @@ export function MarketHero({ onJumpToCatalog, onJumpToCameras, whatsappNumber = 
         </div>
       </div>
     </div>
-    <div className="relative z-10 mx-auto max-w-[1200px] px-4 pb-14 sm:px-6 lg:-mt-14 lg:px-8">
+    <div className="relative z-10 mx-auto hidden max-w-[1200px] px-4 pb-14 sm:px-6 lg:-mt-14 lg:block lg:px-8">
       <div className="relative overflow-hidden rounded-[2rem] bg-[#1C1917] text-white shadow-[0_40px_80px_-30px_rgba(28,25,23,0.7)]">
         <div aria-hidden="true" className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-[#FFAA0D]/25 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '18px 18px' }} />

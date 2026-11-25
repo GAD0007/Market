@@ -90,12 +90,12 @@ export function MarketCatalog({
   return (
     <section id="catalog" className="border-b border-[#F1EADF] bg-white text-[#1C1917]">
       <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-[72px] lg:px-8">
-        <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+        <div className="flex max-w-2xl flex-col items-start text-left sm:mx-auto sm:items-center sm:text-center">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#B45309]">
             Market Catalog · Daily Abuja Prices
           </p>
           <h2 className="mt-2 font-display text-[clamp(1.9rem,4.5vw,2.75rem)] font-extrabold leading-[1.08] tracking-tight [text-wrap:balance]">
-            Pick your foodstuffs &amp; groceries
+            Shop Fresh Groceries
           </h2>
           <p className="mt-3 text-[15px] leading-relaxed text-[#57534E]">
             Add standard market staples below, or write in custom items so our shoppers can source
@@ -206,23 +206,23 @@ export function MarketCatalog({
                     </span>
                   </div>
 
-                  <div className="mt-3 flex flex-1 flex-col items-center px-1 text-center">
-                    <h3 className="font-display text-[15px] font-bold leading-snug text-[#1C1917] [text-wrap:balance]">
+                  <div className="mt-3 flex flex-1 flex-col items-start px-0.5 text-left sm:items-center sm:px-1 sm:text-center">
+                    <h3 className="font-display text-[13px] font-bold leading-snug text-[#1C1917] [text-wrap:balance] sm:text-[15px]">
                       {product.name}
                     </h3>
-                    <p className="mt-0.5 text-xs text-[#78716C]">{product.marketSource}</p>
+                    <p className="mt-0.5 text-[10px] leading-snug text-[#78716C] sm:text-xs">{product.marketSource}</p>
 
-                    <div className="mt-auto flex w-full flex-wrap items-center justify-between gap-2 pt-3">
-                      <span className="font-mono text-[15px] font-bold tabular-nums text-[#1C1917]">
+                    <div className="mt-auto flex w-full items-center justify-between gap-1.5 pt-3">
+                      <span className="min-w-0 font-mono text-[12px] font-bold tabular-nums text-[#1C1917] sm:text-[15px]">
                         {formatNaira(product.priceNgn)}
                       </span>
                       {inBag ? (
-                        <div className="inline-flex items-center gap-0.5 rounded-full bg-[#1C1917] p-[3px] text-white">
+                        <div className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-[#1C1917] p-[3px] text-white">
                           <button
                             type="button"
                             onClick={() => onUpdateQuantity(product.id, -1)}
                             aria-label={`Remove one ${product.name}`}
-                            className={`flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25 active:scale-95 ${FOCUS}`}
+                            className={`flex h-9 w-9 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25 active:scale-95 sm:h-10 sm:w-10 ${FOCUS}`}
                           >
                             <Minus className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
                           </button>
@@ -236,7 +236,7 @@ export function MarketCatalog({
                             type="button"
                             onClick={() => onUpdateQuantity(product.id, 1)}
                             aria-label={`Add one more ${product.name}`}
-                            className={`flex h-10 w-10 items-center justify-center rounded-full bg-[#FFAA0D] text-[#1C1917] transition hover:brightness-95 active:scale-95 ${FOCUS}`}
+                            className={`flex h-9 w-9 items-center justify-center rounded-full bg-[#FFAA0D] text-[#1C1917] transition hover:brightness-95 active:scale-95 sm:h-10 sm:w-10 ${FOCUS}`}
                           >
                             <Plus className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
                           </button>
@@ -246,9 +246,9 @@ export function MarketCatalog({
                           type="button"
                           onClick={() => onUpdateQuantity(product.id, 1)}
                           aria-label={`Add ${product.name} to Market Bag`}
-                          className={`inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-[#FFAA0D] px-4 text-[13px] font-extrabold text-[#1C1917] shadow-[0_6px_14px_-8px_rgba(255,170,13,0.9)] transition hover:brightness-95 active:scale-95 ${FOCUS}`}
+                          className={`inline-flex min-h-[40px] shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-[#FFAA0D] px-3 text-[12px] font-extrabold text-[#1C1917] shadow-[0_6px_14px_-8px_rgba(255,170,13,0.9)] transition hover:brightness-95 active:scale-95 sm:min-h-[44px] sm:px-4 sm:text-[13px] ${FOCUS}`}
                         >
-                          <Plus className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
+                          <Plus className="hidden h-3.5 w-3.5 sm:block" strokeWidth={2.5} aria-hidden="true" />
                           <span className="sm:hidden">Add</span>
                           <span className="hidden sm:inline">Add to Bag</span>
                         </button>
@@ -274,7 +274,7 @@ export function MarketCatalog({
         >
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h3 className="font-display text-xl font-extrabold">Need an item not listed above?</h3>
+              <h3 className="font-display text-xl font-extrabold">Can&apos;t Find an Item?</h3>
               <p className="mt-1 text-sm text-[#57534E]">
                 Add any specific foodstuff, vegetable, or bulk vendor item (e.g. Ugu leaves, Egusi,
                 stockfish) to your basket.
