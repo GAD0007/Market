@@ -54,7 +54,7 @@ export function SiteFooter({
           </FooterGroup>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/15 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/15 pt-6 text-center text-xs text-white/55 sm:flex-row sm:justify-between sm:text-left">
           <p>© {new Date().getFullYear()} MarketMadeEasyAbj. All rights reserved.</p>
           <p>Fresh markets. Easy ordering. Abuja delivery.</p>
         </div>
