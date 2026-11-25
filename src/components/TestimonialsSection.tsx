@@ -28,7 +28,7 @@ export function TestimonialsSection() {
   const featured = TESTIMONIALS[0];
 
   return (
-    <section className="overflow-hidden border-b border-[#F1EADF] bg-[#FFFCF7] text-[#1C1917]">
+    <section id="testimonials" className="overflow-hidden border-b border-[#F1EADF] bg-[#FFFCF7] text-[#1C1917]">
       <div className="mx-auto max-w-[1200px] px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-12 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="flex items-center justify-center gap-2 text-sm font-extrabold text-[#B45309]">

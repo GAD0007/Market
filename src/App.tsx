@@ -13,10 +13,10 @@ import { AdminDashboard } from './components/AdminDashboard';
 import { LiveCameraCallModal } from './components/LiveCameraCallModal';
 import { LiveMarketCameras } from './components/LiveMarketCameras';
 import { OrderTracking } from './components/OrderTracking';
+import { SiteFooter } from './components/SiteFooter';
 import {
   ABUJA_DISTRICTS,
   BUSINESS_PHONE_DISPLAY,
-  BUSINESS_TEL_HREF,
   WHATSAPP_BUSINESS_NUMBER,
 } from './data/marketData';
 import { checkIsAdminUser, subscribeAuth, testApiConnection } from './lib/auth';
@@ -353,62 +353,12 @@ export default function App() {
         )}
       </main>
 
-      <footer className="border-t border-[#E7E5E4] bg-white">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-4 py-8 text-xs text-[#52525B] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <div>
-            <span className="font-display text-sm font-bold text-[#14221B]">MarketMadeEasyAbj</span>{' '}
-            <span aria-hidden="true">·</span> Apo Dispatch Office, Abuja FCT, Nigeria
-          </div>
-          <div className="flex flex-wrap items-center gap-5">
-            <button
-              type="button"
-              onClick={() => handleNavigateView('storefront', 'catalog')}
-              className="hover:text-[#14221B]"
-            >
-              Catalog
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateView('storefront', 'coverage')}
-              className="hover:text-[#14221B]"
-            >
-              Coverage &amp; Fees
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateView('tracking')}
-              className="hover:text-[#14221B]"
-            >
-              Track Order
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateView('customer')}
-              className="hover:text-[#14221B]"
-            >
-              Customer Dashboard
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigateView('admin')}
-              className="hover:text-[#14221B]"
-            >
-              Admin Dashboard
-            </button>
-            <a href={BUSINESS_TEL_HREF} className="font-mono tabular-nums hover:text-[#14221B]">
-              {whatsappDisplay}
-            </a>
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[#DC2626] hover:underline"
-            >
-              WhatsApp Orders ({whatsappDisplay})
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter
+        onNavigate={handleNavigateView}
+        onOpenBag={() => setIsBagOpen(true)}
+        whatsappNumber={whatsappNumber}
+        whatsappDisplay={whatsappDisplay}
+      />
 
       <CartDrawer
         isOpen={isBagOpen}
