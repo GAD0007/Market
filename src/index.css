@@ -434,23 +434,7 @@
   .mb-custom__fields > button { width: 100%; }
 }
 
-/* Live-market cards: keep compact controls intact and give custom items a visual fallback. */
-#cameras ul > li:not(:has(img)) {
-  min-width: 0;
-  overflow: hidden;
-  justify-content: flex-end;
-  background-color: white;
-  background-image: linear-gradient(to bottom, rgb(255 255 255 / 8%), rgb(28 25 23 / 58%)),
-    url("./assets/images/cat_grains_staples_1794668232030.jpg");
-  background-position: center;
-  background-size: cover;
-  color: white;
-}
-
-#cameras ul > li:not(:has(img)) p {
-  color: rgb(255 255 255 / 78%);
-}
-
+/* Live-market cards: keep compact controls intact on narrow screens. */
 #cameras ul > li button {
   display: inline-flex;
   flex-shrink: 0;
@@ -486,7 +470,4 @@
     font-size: 0.75rem;
   }
 
-  #cameras ul > li button svg {
-    display: none;
-  }
 }
