@@ -112,7 +112,7 @@ export function CoverageAndFees({
 
             <div className="flex flex-col gap-5 lg:col-span-5">
               <div className="rounded-xl border border-[#F0D79E] bg-white p-6 shadow-[0_12px_30px_-26px_rgba(180,83,9,0.45)]">
-                <h3 className="font-display text-lg font-semibold text-[#14221B]">
+                <h3 className="font-display text-lg font-semibold leading-snug text-[#14221B]">
                   Service Charge by Location
                 </h3>
                 <p className="mt-1 text-xs leading-relaxed text-[#52525B]">
@@ -121,21 +121,21 @@ export function CoverageAndFees({
                 </p>
 
                 <div className="mt-4 divide-y divide-[#E7E5E4] border-y border-[#E7E5E4]">
-                  <div className="flex items-center justify-between py-3 text-sm">
+                  <div className="flex flex-col items-start gap-1 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                     <span className="text-[#27272A]">Apo, Gudu &amp; Lokogoma (3–6 km)</span>
-                    <span className="font-mono font-semibold tabular-nums text-[#14221B]">
+                    <span className="font-display font-semibold tabular-nums text-[#14221B] sm:shrink-0 sm:text-right">
                       ₦2,500 – ₦3,500
                     </span>
                   </div>
-                  <div className="flex items-center justify-between py-3 text-sm">
+                  <div className="flex flex-col items-start gap-1 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                     <span className="text-[#27272A]">Central Abuja: Garki to Maitama (8–15 km)</span>
-                    <span className="font-mono font-semibold tabular-nums text-[#14221B]">
+                    <span className="font-display font-semibold tabular-nums text-[#14221B] sm:shrink-0 sm:text-right">
                       ₦4,500 – ₦8,500
                     </span>
                   </div>
-                  <div className="flex items-center justify-between py-3 text-sm">
+                  <div className="flex flex-col items-start gap-1 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                     <span className="text-[#27272A]">Lugbe, Gwarinpa &amp; Kubwa (18–28 km)</span>
-                    <span className="font-mono font-semibold tabular-nums text-[#14221B]">
+                    <span className="font-display font-semibold tabular-nums text-[#14221B] sm:shrink-0 sm:text-right">
                       ₦9,500 – ₦12,500
                     </span>
                   </div>
@@ -147,7 +147,7 @@ export function CoverageAndFees({
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3D6]">
                     <Bike className="h-4 w-4 text-[#B45309]" aria-hidden="true" />
                   </span>
-                  <h3 className="font-display text-lg font-semibold text-[#14221B]">
+                  <h3 className="min-w-0 flex-1 font-display text-lg font-semibold leading-snug text-[#14221B]">
                     3-Bike Launch Fleet (Apo Hub)
                   </h3>
                 </div>
