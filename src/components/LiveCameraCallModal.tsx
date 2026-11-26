@@ -79,13 +79,15 @@ export function LiveCameraCallModal({
               <video ref={videoRef} autoPlay playsInline muted className={`h-full w-full object-cover ${cameraActive ? '' : 'hidden'}`} />
               {!cameraActive && <CameraOff className="h-12 w-12 text-white/60" />}
             </div>
-            <button onClick={startPreview} className="mt-3 inline-flex min-h-[42px] items-center gap-2 rounded-lg bg-[#14221B] px-4 py-2 text-sm font-semibold text-white">
-              <Camera className="h-4 w-4" /> Start camera preview
-            </button>
+            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <button onClick={startPreview} className="inline-flex min-h-[42px] items-center gap-2 rounded-lg bg-[#14221B] px-4 py-2 text-sm font-semibold text-white">
+                <Camera className="h-4 w-4" /> Start camera preview
+              </button>
+              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold text-[#15803D] hover:underline">
+                <MessageCircle className="h-4 w-4" /> Contact live desk ({whatsappDisplay})
+              </a>
+            </div>
             {notice && <p className="mt-3 rounded-lg bg-[#F4F4F0] p-3 text-xs text-[#52525B]">{notice}</p>}
-            <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-[#15803D] hover:underline">
-              <MessageCircle className="h-4 w-4" /> Contact live desk ({whatsappDisplay})
-            </a>
           </section>
 
           <section>
