@@ -172,7 +172,7 @@ export function AdminDashboard({
             Admin, Dispatch &amp; Shopper Camera Console
           </h1>
           <p className="mt-2 text-sm leading-relaxed text-[#52525B]">
-            Sign in with your authorized Admin Google account ({BOOTSTRAPPED_ADMIN_EMAIL}) to
+            Sign in with your authorized admin account ({BOOTSTRAPPED_ADMIN_EMAIL}) to
             manage Abuja bike dispatch, Market Boys &amp; Girls cameras, live customer video calls,
             and all platform connectors.
           </p>
@@ -210,7 +210,7 @@ export function AdminDashboard({
             onClick={onOpenLogin}
             className="mt-5 min-h-[40px] rounded-lg border border-[#D6D3D1] bg-white px-4 py-2 text-xs font-semibold text-[#14221B] hover:bg-[#F5F5F4]"
           >
-            Switch Google Account
+            Switch Account
           </button>
         </div>
       </section>
@@ -363,8 +363,8 @@ export function AdminDashboard({
       const ok = await testApiConnection();
       setConnectorCheckMsg(
         ok
-          ? `Application API (${conn.endpointOrValue}) responded cleanly.`
-          : 'Application API appears offline.'
+          ? `Firebase (${conn.endpointOrValue}) responded cleanly.`
+          : 'Firebase appears unavailable or blocked by security rules.'
       );
     } else if (conn.category === 'Camera & Video') {
       const hasMedia = Boolean(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);

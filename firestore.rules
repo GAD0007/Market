@@ -1,0 +1,69 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isBootstrapAdmin() {
+      return signedIn() && request.auth.token.email != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower() == 'ojimbaejike@gmail.com';
+    }
+    function hasAdminGrant() {
+      return signedIn() && exists(/databases/$(database)/documents/adminGrants/$(request.auth.uid));
+    }
+    function isAdmin() { return isBootstrapAdmin() || hasAdminGrant(); }
+    function ownsExistingDocument() { return signedIn() && resource.data.ownerId == request.auth.uid; }
+
+    match /storefront/{documentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /profiles/{uid} {
+      allow read, create, update, delete: if signedIn() && request.auth.uid == uid
+        && (request.method == 'delete' || request.resource.data.ownerId == uid);
+    }
+    match /shoppingLists/{listId} {
+      allow create: if signedIn() && request.resource.data.ownerId == request.auth.uid;
+      allow read, delete: if ownsExistingDocument();
+      allow update: if ownsExistingDocument() && request.resource.data.ownerId == resource.data.ownerId;
+    }
+    match /orders/{orderId} {
+      allow create: if signedIn() && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.status == 'pending_sourcing'
+        && request.resource.data.paymentStatus == 'unpaid';
+      allow read: if isAdmin() || ownsExistingDocument();
+      allow update: if isAdmin() || (ownsExistingDocument()
+        && request.resource.data.ownerId == resource.data.ownerId
+        && request.resource.data.status == 'cancelled'
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt']));
+      allow delete: if false;
+    }
+    match /shoppers/{shopperId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /cameraSessions/{sessionId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /videoCalls/{callId} {
+      allow create: if signedIn() && request.resource.data.customerId == request.auth.uid;
+      allow read: if isAdmin() || (signedIn() && resource.data.customerId == request.auth.uid);
+      allow update: if isAdmin() || (signedIn() && resource.data.customerId == request.auth.uid
+        && request.resource.data.customerId == resource.data.customerId);
+      allow delete: if isAdmin();
+      match /{candidateCollection}/{candidateId} {
+        allow read, create: if signedIn() && (isAdmin()
+          || get(/databases/$(database)/documents/videoCalls/$(callId)).data.customerId == request.auth.uid);
+        allow update, delete: if false;
+      }
+    }
+    match /connectors/{connectorId} {
+      allow read, write: if isAdmin();
+    }
+    match /adminGrants/{uid} {
+      allow get: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow list, create, update, delete: if isAdmin();
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

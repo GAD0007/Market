@@ -1,6 +1,6 @@
 # MarketMadeEasyAbj
 
-Independent React + Express application. It does not use Firebase and does not deploy to or modify the original AI Studio application.
+React and Vite application backed by Firebase Authentication and Cloud Firestore.
 
 ## Local development
 
@@ -12,22 +12,32 @@ Copy-Item .env.example .env
 npm run dev
 ```
 
-Open `http://localhost:3000`. The API runs on `http://localhost:8787`, and Vite proxies `/api` requests to it.
+Fill the `VITE_FIREBASE_*` entries in `.env`, then open `http://localhost:3000`.
 
-The first account registered with the email in `ADMIN_EMAIL` receives administrator access. Local data is stored in `server/data/market-boys.sqlite`; that directory is excluded from Git.
+## Firebase
+
+- Email/password accounts are managed by Firebase Authentication.
+- Application data and realtime subscriptions use Cloud Firestore.
+- Security rules live in `firestore.rules` and must be deployed before using the app.
+- The bootstrap admin must verify the configured email address. Additional admins are stored in `adminGrants` by UID.
+
+Deploy rules and indexes with an authorized Firebase account:
+
+```powershell
+npx firebase-tools deploy --only firestore:rules,firestore:indexes
+```
 
 ## Commands
 
-- `npm run dev` — start the API and website together.
-- `npm run dev:web` — start only the website (requires the API to already be running).
-- `npm run lint` — type-check the frontend.
-- `npm run build` — build the frontend.
-- `npm start` — run the API and serve `dist` when `NODE_ENV=production`.
+- `npm run dev` — start the website locally.
+- `npm run lint` — type-check the application.
+- `npm run build` — create a production build.
+- `npm run preview` — preview the production build.
 
 ## Payments
 
-Payment initialization is disabled until a provider is selected. Provider secrets and webhook verification belong on the API server, never in `VITE_*` variables.
+Payment initialization remains disabled until a provider is selected. Provider secrets and webhook verification must run in a trusted server function and must never be stored in `VITE_*` variables or browser code.
 
 ## Current video limitation
 
-Camera preview and item selection work. Remote WebRTC calling is temporarily preview-only while the replacement realtime signaling service is completed.
+Camera preview and item selection work. Remote WebRTC calling uses Firestore signaling but still requires production TURN infrastructure for reliable connectivity across restrictive networks.

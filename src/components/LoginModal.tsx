@@ -201,6 +201,11 @@ export function LoginModal({
             </button>
 
             <p className="text-xs leading-relaxed text-[#71717A]">
+              New accounts receive a Firebase verification email. Verify the address before using
+              bootstrap administrator access.
+            </p>
+
+            <p className="text-xs leading-relaxed text-[#71717A]">
               Admin &amp; Dispatch Console access is automatically enabled for{' '}
               <span className="font-mono text-[#14221B]">{BOOTSTRAPPED_ADMIN_EMAIL}</span> and
               authorized team UIDs.
